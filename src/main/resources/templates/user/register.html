@@ -1,0 +1,277 @@
+
+<!DOCTYPE html>
+<html lang="en"  ng-app="myApp">
+
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>B.S.C.Team - CarService</title>
+
+<!-- Link To Base CSS -->
+    
+	<!-- Link To Favicon -->
+    <link rel="shortcut icon" href="/images/favicon.svg" type="image/svg+xml">
+
+    <!-- Link To Base CSS -->
+    <link rel="stylesheet" href="/css/base.css">
+
+    <!-- Link To Icon Bootstrap -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+
+    <!-- Link To Bootstrap CSS -->
+    <link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css">
+<link href="/user/component/_linkCSS">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.8.3/angular.min.js"></script>
+<style>
+.login-form-container {
+	background: #f3f3f3 none repeat scroll 0 0;
+	padding: 37px 40px;
+	text-align: left;
+	overflow: hidden;
+}
+
+.register-form .col-md-5 {
+	float: left;
+}
+
+.message {
+	color: red
+}
+
+.login-form-container input {
+	background: #ffffff none repeat scroll 0 0;
+	border: medium none rgba(0, 0, 0, 0);
+	border-radius: 0;
+	box-shadow: none;
+	color: #333;
+	font-size: 14px;
+	height: 40px;
+	margin-bottom: 20px;
+	padding-left: 10px;
+	width: 100%;
+}
+
+.form-action-button {
+	overflow: hidden;
+	margin-top: 10px;
+}
+
+.customer-page .theme-default-button {
+	border-radius: 30px;
+	color: #fff;
+}
+
+.theme-default-button {
+	background-color: #000;
+	border: medium none;
+	color: #fff;
+	cursor: pointer;
+	display: inline-block;
+	font-size: 14px;
+	font-weight: 400;
+	height: 40px;
+	line-height: 24px;
+	margin-bottom: 0;
+	padding: 8px 25px;
+	border-radius: 0;
+	text-align: center;
+}
+
+.form-action-button a {
+	float: right;
+	margin-top: 7px;
+}
+
+.customer-page a {
+	color: #303030;
+}
+
+.account-optional-action {
+	margin-top: 20px;
+}
+</style>
+
+</head>
+
+<body ng-controller="registerController">
+
+	<!-- Header Start -->
+<header th:insert="~{/user/component/_header}" ></header>
+
+	<!-- Header End -->
+
+	    <main>
+
+        <!-- ========================== BREADCRUMB ========================== -->
+        <section class="breadcrumb">
+            <ul class="breadcrumb__list d-flex container">
+                <li><a href="../html/index.html" class="breadcrumb__link">Trang chủ</a></li>
+                <li><span class="breadcrumb__link">></span></li>
+                <li><span class="breadcrumb__link active">Đăng ký</span></li>
+            </ul>
+        </section>
+
+        <div class="customer-page theme-default-margin">
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-6 offset-lg-3 col-md-8 offset-md-2">
+
+						<div class="login">
+							<div id="CustomerLoginForm">
+								<form action="/user/register" id="customer_register"
+									    accept-charset="UTF-8" data-login-with-shop-sign-in="true">
+
+									
+									<input type="hidden" name="form_type" value="customer_register">
+									<input type="hidden" name="utf8" value="✓">
+									
+									
+									<div class="login-form-container">
+										<div class="login-text" style="text-align: center;">
+										    <h2>Tạo Tài Khoản</h2>
+										    <!-- <div th:if="${session.registerError != null}">
+										        <span th:text="${session.registerError}"></span>
+										    </div> -->
+										</div>
+
+										<div class="register-form">
+									<div id="create_customer" accept-charset="UTF-8" data-login-with-shop-sign-up="true">
+											    <input type="hidden" name="form_type" value="create_customer">
+											    <input type="hidden" name="utf8" value="✓">
+											
+											    <div class="col-md-5" style="margin-right: 70px;">
+											        <label class="hidden-label">Họ</label>
+											        <input type="text" ng-model="users.first_names" id="first_names" class="input-full" placeholder="" autocapitalize="words" autofocus>
+											        <!-- <small class="form-text text-danger" th:errors="*{first_names}"></small> -->
+											    </div>
+											
+											    <div class="col-md-5" style="width: 250px;">
+											        <label class="hidden-label">Tên</label>
+											        <input type="text" ng-model="users.last_names" id="last_names" class="input-full" placeholder="" autocapitalize="words">
+											        <!-- <small class="form-text text-danger" th:errors="*{last_names}"></small> -->
+											    </div>
+											
+											    <br>
+											
+											    <label class="hidden-label">Tên Đăng Nhập</label>
+											    <input type="text" ng-model="users.user_names" id="user_names" class="input-full" placeholder="" autocapitalize="words" autofocus>
+											    <!-- <small class="form-text text-danger" th:errors="*{user_names}"></small> -->
+											
+											    <br>
+											
+											    <label class="hidden-label">Email</label>
+											    <input type="email" ng-model="users.email" id="email" class="input-full" placeholder="" autocorrect="off" autocapitalize="off">
+											    <!-- <small class="form-text text-danger" th:errors="*{email}"></small> -->
+											
+											    <br>
+											
+											    <label class="hidden-label">Mật Khẩu</label>
+											    <input type="password" ng-model="users.pass_words" id="pass_words" class="input-full" placeholder="">
+											    <!-- <small class="form-text text-danger" th:errors="*{pass_words}"></small> -->
+											
+											    <br>
+											
+											    <label class="hidden-label">Nhập lại mật khẩu</label>
+											    <input type="password" ng-model="users.pass_words2" id="pass_words2" class="input-full" placeholder="">
+											    <!-- <small class="form-text text-danger" th:errors="*{pass_words2}"></small> -->
+											    <!-- <label style="color: red" type="hidden">${errorPass}</label> -->
+											
+											    <div class="form-action-button">
+											        <button type="submit" ng-click="create()" class="theme-default-button">Tạo</button>
+											    </div>
+											</div>
+
+											<div class="account-optional-action">
+												<a href="/user/index">Quay lại cửa hàng</a>
+											</div>
+										</div>
+									</div>
+								</form>
+							</div>
+
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+
+
+
+    </main>
+
+
+
+	<!-- Footer Start -->
+	
+	<!-- Footer End -->
+<th:block th:insert="~{/user/component/_footer}" /> 
+
+	<!-- Link To Base JS -->
+	
+	<!-- <th:block th:insert="~{/user/component/_linkJS}" /> -->
+	<script src="../js/main.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+	
+	
+	
+	<script >
+var app = angular.module('myApp', []);
+	
+	app.controller('registerController', function ($scope, $http) {
+		$scope.users = "";
+		$scope.view = function () {
+			var RegisterURL2 = "http://localhost:8080/api/user/register";
+			
+			$http.get(RegisterURL2)
+				.then(function (rep) {
+					$scope.users = rep.data;
+				})
+				.catch(function (e) {
+					console.log(e);
+				});
+		}
+		
+		$scope.create = function() {
+	        var RegisterURL = "http://localhost:8080/api/user/register";
+	        
+	        $http.post(RegisterURL, $scope.users)
+			.then(function (rep) {
+				$scope.users = rep.data;
+				window.location.href = "http://localhost:8080/user/login";
+			})
+			.catch(function (e) {
+				console.log(e);
+				window.location.href = "http://localhost:8080/user/register";
+			});
+	      
+	    }
+		
+		$scope.logined = function(username, password) {
+			var url = "http://localhost:8080/user/login";
+			$http.post(url)
+				.then(function (resp) {
+					
+				})
+		}
+			
+		
+		
+		$scope.view();
+		
+	});
+	
+	
+	
+	</script>
+	
+	
+	
+	
+	
+	
+	
+</body>
+
+</html>
