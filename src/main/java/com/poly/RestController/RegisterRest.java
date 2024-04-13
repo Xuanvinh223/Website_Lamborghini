@@ -3,6 +3,7 @@ package com.poly.RestController;
 import java.io.File;
 import java.io.IOException;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.Map;
 
 import javax.mail.MessagingException;
@@ -23,6 +24,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.freemarker.FreeMarkerTemplateUtils;
 import org.springframework.validation.BindingResult;
+import org.springframework.validation.FieldError;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -55,24 +57,30 @@ public class RegisterRest {
 	HttpSession session;
 	@Autowired
 	private Configuration config;
-	
-	
+
 	@GetMapping("api/user/register")
 	public ResponseEntity<Users_bean> view(@ModelAttribute("user") Users_bean model) {
 		Users user = new Users();
-		
+
 		return ResponseEntity.ok(model);
 	}
 
 	@PostMapping("api/user/register")
-	public ResponseEntity<Users> signup(@Valid @RequestBody Users_bean model, BindingResult result,Model m,
+	public ResponseEntity<Map<String, String>> signup(@Valid @RequestBody Users_bean model, BindingResult result,
+			Model m,
 			MailRequest request, Map<String, Object> map) {
 		Users user = new Users();
 		String getMail = "";
+		Map<String, String> resultAPI = new HashMap<>();
 		if (result.hasErrors()) {
-			System.out.println("Có lỗi khi đăng ký");
+			Map<String, String> fieldErrorsMap = new HashMap<>();
 
-			return ResponseEntity.notFound().build();
+			for (FieldError error : result.getFieldErrors()) {
+				String field = error.getField();
+				String message = error.getDefaultMessage();
+				fieldErrorsMap.put(field, message);
+			}
+			return ResponseEntity.ok(fieldErrorsMap);
 		} else {
 			// nếu không trùng pass2
 			if (model.getPass_words2().equalsIgnoreCase(model.getPass_words())) {
@@ -80,9 +88,11 @@ public class RegisterRest {
 				if (us != null) {
 					session.setAttribute("registerError", "Email đã tồn vui lòng nhập lại thông tin !!");
 					System.out.println("Email đã tồn vui lòng nhập lại thông tin !!");
+					resultAPI.put("status", "200");
+					resultAPI.put("message", "Email đã tồn vui lòng nhập lại thông tin !!");
 				} else {
-					//Thành Công
-					
+					// Thành Công
+
 					Users acc = new Users();
 					Roles roles = new Roles();
 					acc.setUser_names(model.getUser_names().trim());
@@ -101,19 +111,18 @@ public class RegisterRest {
 					acc.setRoles(roles);
 					acc.setIs_active(1);
 					this.userDao.save(acc);
-					
+
 					System.out.println("Thành công");
 					MailModel mail = new MailModel();
 					Users u = this.userDao.findByEmail(acc.getEmail());
 					MimeMessage message = sender.createMimeMessage();
 					MailResponse response = new MailResponse();
 					System.out.println(acc.getEmail());
-					
-					
+
 					getMail = acc.getEmail();
-						
+
 					mail.setFrom("vuongpvpc04104@fpt.edu.vn");
-					
+
 					try {
 
 						MimeMessageHelper helper = new MimeMessageHelper(message, true, "utf-8");
@@ -123,43 +132,41 @@ public class RegisterRest {
 						helper.setSubject("Thư Chào Mừng");
 						helper.setTo(getMail);
 						helper.setText(html, true);
-						
+
 						helper.setReplyTo(mail.getFrom());
-						
-						
+
 						sender.send(message);
 						response.setMessage("mail send to : " + request.getTo());
 						response.setStatus(Boolean.TRUE);
-						
-						
+
 					} catch (MessagingException | IOException | TemplateException e) {
-						response.setMessage("Mail Sending failure : "+e.getMessage());
+						response.setMessage("Mail Sending failure : " + e.getMessage());
 						response.setStatus(Boolean.FALSE);
 						/* m.addAttribute("message", "Gửi mail thất bại"); */
 					}
-					if(acc.getEmail().equals("") == false  ) {
-						sender.send(message);		
+					if (acc.getEmail().equals("") == false) {
+						sender.send(message);
 						System.out.println("Gửi Gmail thành công");
-						m.addAttribute("message", "Gmail đã được gửi thành công vui lòng check gmail !!");	
-						mail.setTo("");	
-						
+						m.addAttribute("message", "Gmail đã được gửi thành công vui lòng check gmail !!");
+						mail.setTo("");
+						resultAPI.put("status", "200");
+						resultAPI.put("message", "Gửi gmail thành công");
 					}
-					
-					
+
 					session.removeAttribute("registerError");
-					return ResponseEntity.ok(user);
-					
-					
+					return ResponseEntity.ok(resultAPI);
+
 				}
 
-			}else {
-				m.addAttribute("errorPass","Mật khẩu không trừng khớp ");
+			} else {
+				m.addAttribute("errorPass", "Mật khẩu không trừng khớp ");
 				System.out.println("Mật khẩu không trừng khớp ");
-				return ResponseEntity.notFound().build();
+				resultAPI.put("status", "200");
+				resultAPI.put("erorrPassWords2", "Mật khẩu không trừng khớp");
+				return ResponseEntity.ok(resultAPI);
 			}
 
-			
 		}
-		return ResponseEntity.ok(user);
+		return ResponseEntity.ok(resultAPI);
 	}
 }

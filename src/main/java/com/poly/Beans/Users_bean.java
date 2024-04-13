@@ -4,6 +4,8 @@ import java.util.Date;
 
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Size;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.Getter;
@@ -20,7 +22,7 @@ import lombok.Setter;
 public class Users_bean {
 
 	private int id;
-	@NotBlank(message = "Vui lòng nhập thông tin tiêu đề")
+	@NotBlank(message = "Vui lòng nhập thông tin tên tài khoản")
 	private String user_names;
 	@NotBlank(message = "Vui lòng nhập thông tin họ")
 	private String first_names;
@@ -29,7 +31,7 @@ public class Users_bean {
 	@NotBlank(message = "Vui lòng nhập thông tin email")
 	@Email(message = "Vui lòng nhập đúng thông tin email")
 	private String email;
-	@NotBlank(message = "Vui lòng nhập thông tin mật khẩu")
+	@Size(min = 8, message = "Mật khẩu phải chứa ít nhất 8 kí tự")
 	private String pass_words;	
 	@NotBlank(message = "Vui lòng nhập lại thông tin mật khẩu")
 	private String pass_words2;
