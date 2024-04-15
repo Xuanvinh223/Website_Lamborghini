@@ -35,7 +35,7 @@ public class OrderMANController {
 		Orders entity = new Orders();
 		model.addAttribute("orders", entity);
 		
-		List<Orders> list =dao.findAll();
+		List<Orders> list =dao.findAllOrderByCreateDateDesc();
 		model.addAttribute("list", list);
 		
 		// Tìm User đã đăng nhập vào trang web

@@ -2,19 +2,19 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 
 <head>
-<meta charset="UTF-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-	<title>B.S.C.Team - CarService</title>
+    <title>B.S.C.Team - CarService</title>
 
-	<!-- Link To Base CSS -->
-	<th:block th:include="/user/component/_linkCSS :: cssLinks" />
-	
-	<!-- Link To Product CSS -->
-	<link rel="stylesheet" th:href="@{/css/product.css}">
+    <!-- Link To Base CSS -->
+    <th:block th:include="/user/component/_linkCSS :: cssLinks" />
 
-	<style>
+    <!-- Link To Product CSS -->
+    <link rel="stylesheet" th:href="@{/css/product.css}">
+
+    <style>
         .bg-img {
             padding: 200px 0 170px;
             margin-top: -130px;
@@ -25,14 +25,14 @@
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
 </head>
 
-<body  ng-app="shop-cart" ng-controller="ctrl">
+<body ng-app="shop-cart" ng-controller="ctrl">
 
-	<!-- Header Start -->
-	<header th:replace="~{/user/component/_header :: header}" ></header>
-	<!-- Header End -->
-    
+    <!-- Header Start -->
+    <header th:replace="~{/user/component/_header :: header}"></header>
+    <!-- Header End -->
+
     <main>
-		<div id="carouselExampleCaptions" class="carousel slide mb-5">
+        <div id="carouselExampleCaptions" class="carousel slide mb-5">
             <div class="carousel-indicators">
                 <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active"
                     aria-current="true" aria-label="Slide 1"></button>
@@ -43,14 +43,14 @@
                 <div class="carousel-item active">
                     <img th:src="@{/images/slider-04.jpg}" class="d-block w-100" alt="...">
                     <div class="carousel-caption my-caption d-none d-md-block">
-                       
+
                         <a class="btn" href="#">Xem chi tiết</a>
                     </div>
                 </div>
                 <div class="carousel-item active">
                     <img th:src="@{/images/slider-03.jpg}" class="d-block w-100" alt="...">
                     <div class="carousel-caption my-caption d-none d-md-block">
-                       
+
                         <a class="btn" href="#">Xem chi tiết</a>
                     </div>
                 </div>
@@ -70,272 +70,221 @@
                 </div>
             </button>
         </div>
-		
-		
+
+
         <div class="call-to-action-area">
-    <div class="container">
-        <div class="row">
-            <div class="col-sm-6 col-md-4 col-lg-4">
-                <div class="call-to-action-item mt-0">
-                    <div class="call-to-action-item__icon">
-                        <img th:src="@{'../images/icon-01_small.png'}" alt="fast delivery">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-6 col-md-4 col-lg-4">
+                        <div class="call-to-action-item mt-0">
+                            <div class="call-to-action-item__icon">
+                                <img th:src="@{'../images/icon-01_small.png'}" alt="fast delivery">
+                            </div>
+                            <div class="call-to-action-item__info">
+                                <h3>Dịch vụ vận chuyển</h3>
+                                <p>Vận chuyển cấp tốc. Miễn phí cho các đơn hàng > 500.000 VNĐ</p>
+                            </div>
+                        </div>
                     </div>
-                    <div class="call-to-action-item__info">
-                        <h3>Dịch vụ vận chuyển</h3>
-                        <p>Vận chuyển cấp tốc. Miễn phí cho các đơn hàng > 500.000 VNĐ</p>
+                    <div class="col-sm-6 col-md-4 col-lg-4">
+                        <div class="call-to-action-item ">
+                            <div class="call-to-action-item__icon">
+                                <img th:src="@{'../images/icon-02_small.png'}" alt="fast delivery">
+                            </div>
+                            <div class="call-to-action-item__info">
+                                <h3>Chất lượng sản phẩm</h3>
+                                <p>Chúng tôi luôn đảm bảo về nguồn gốc và chất lượng sản phẩm của mình</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-md-4 col-lg-4">
+                        <div class="call-to-action-item ">
+                            <div class="call-to-action-item__icon">
+                                <img th:src="@{'../images/icon-03_small.png'}" alt="fast delivery">
+                            </div>
+                            <div class="call-to-action-item__info">
+                                <h3>Hỗ trợ trực tuyến</h3>
+                                <p>Chúng tôi luôn có đội ngũ trực tuyến, để hổ trợ cho khách hàng</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
-            <div class="col-sm-6 col-md-4 col-lg-4">
-                <div class="call-to-action-item ">
-                    <div class="call-to-action-item__icon">
-                        <img th:src="@{'../images/icon-02_small.png'}" alt="fast delivery">
+        </div>
+
+        <section>
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-5 m-auto text-center">
+                        <div class="section-title">
+                            <h2 class="fw-bold text-uppercase">Bán chạy nhất</h2>
+                            <p>Tất cả các sản phẩm bán chạy nhất hiện có sẵn cho bạn và bạn có thể mua sản phẩm này từ
+                                đây mọi lúc, mọi nơi.</p>
+                        </div>
                     </div>
-                    <div class="call-to-action-item__info">
-                        <h3>Chất lượng sản phẩm</h3>
-                        <p>Chúng tôi luôn đảm bảo về nguồn gốc và chất lượng sản phẩm của mình</p>
+                </div>
+                <div class="row products">
+                    <div class="col-md-3 col-sm-6 "
+                        ng-repeat="item in (products | filter:searchKeyword | limitTo: itemsPerPage : (currentPage - 1) * itemsPerPage)">
+                        <!-- <input id="productId2" value="${item.id}" type="hidden"> -->
+                        <div class="product-grid6">
+                            <div class="card rounded-0">
+                                <div class="product-image6">
+
+                                    <!-- 	--------------------- thông tin được chuyển trang --------------------- -->
+                                    <a ng-href="/user/product?id={{item.id}}" ng-click="viewProductDetail(item.id)">
+                                        <img class="card-img rounded-0 img-fluid"
+                                            ng-src="../images/product-img/{{item.images}}" />
+                                    </a>
+
+
+                                </div>
+                                <div class="product-content">
+                                    <a href="shop-single.html" class="h3 text-decoration-none"></a>
+                                    <ul class="list-unstyled d-flex justify-content-center mb-1">
+                                        <li><i class="text-warning bi bi-star"></i> <i
+                                                class="text-warning bi bi-star"></i> <i
+                                                class="text-warning bi bi-star"></i> <i
+                                                class="text-warning bi bi-star"></i> <i
+                                                class="text-warning bi bi-star"></i></li>
+                                    </ul>
+                                    <!-- 	----------------input hidden----------------------- -->
+
+                                    <!-- <input type="hidden" id="imgOne${item.id}"
+                                value="${item.images}"> <input type="hidden"
+                                id="nameOne${item.id}" value="${item.titles}" /> <input
+                                type="hidden" id="OnePrice${item.id}" value="${item.price}" />
+                            <input type="hidden" id="discount${item.id}"
+                                value="${item.discounts.price_discounts}" />
+                            --------------------------------------------------------------- -->
+                                    <h3 class="title">
+                                        <a href="#">{{item.titles}}</a>
+                                    </h3>
+                                    <div ng-if="!item.discounts || item.discounts === 0">
+                                        <div class="price">{{ item.price | number:0 }} VNĐ</div>
+                                    </div>
+                                    <div ng-if="item.discounts != null && item.discounts != 0">
+                                        <div class="price">
+                                            {{ (item.price - (item.price *
+                                            item.discounts.price_discounts) / 100) | number:0 }} VNĐ
+                                            <del style="color: #ccc"> {{ item.price | number:0 }}
+                                                VNĐ </del>
+                                        </div>
+                                    </div>
+
+
+                                </div>
+
+                                <ul class="social">
+
+                                    <li><a ng-click="viewProduct(item.id)" data-tip="Xem lướt qua"
+                                            data-bs-toggle="modal" data-bs-target="#QuickViewModal"><i
+                                                class="bi bi-eye"></i></a></li>
+
+                                </ul>
+
+                            </div>
+                            <!-- Hiện thị giảm giá. -->
+                            <div class="product-item__sale">
+                                <span class="percent-count sale-txt" ng-if="item.discounts.price_discounts != null"> -{{
+                                    item.discounts.price_discounts }}% </span> <span
+                                    ng-if="item.discounts.price_discounts == null"> 0% </span>
+                            </div>
+
+
+                        </div>
+
+                        <!-- 	</th:block> -->
+
                     </div>
                 </div>
             </div>
-            <div class="col-sm-6 col-md-4 col-lg-4">
-                <div class="call-to-action-item ">
-                    <div class="call-to-action-item__icon">
-                        <img th:src="@{'../images/icon-03_small.png'}" alt="fast delivery">
+        </section>
+
+        <section>
+            <div class="container-bg-img">
+                <div class="bg-img" style="background-image: url('@{/images/background-02.jpg}');">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-12 text-center">
+                                <div class="section-title">
+                                    <h2 class="fw-bold text-uppercase">Tất cả các linh kiện <br>
+                                        mà xe bạn cần đều đang ở đây
+                                    </h2>
+                                    <a th:href="@{/user/detail}" class="btn btn-outline-warning mt-3">Mua sắm</a>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <div class="call-to-action-item__info">
-                        <h3>Hỗ trợ trực tuyến</h3>
-                        <p>Chúng tôi luôn có đội ngũ trực tuyến, để hổ trợ cho khách hàng</p>
+                </div>
+                <div style="margin-top: -130px;">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-12 d-flex justify-content-center">
+                                <img th:src="@{/images/background-car.png}" alt="">
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
+        </section>
+
+
+    </main>
+    <!-- Modal Quick View -->
+	<div class="modal fade modal-xl" id="QuickViewModal" tabindex="-1"
+    aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-body" style="padding: 100px;">
+
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="box__quickview-image">
+                            <img id="images" alt=""
+                                ng-src="../images/product-img/{{product_Detail.images}}">
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <h4 id="title">
+                            Tên sản phẩm: {{product_Detail.titles}}
+                            <div class="price d-flex align-items-center gap-2">
+                                <span id="price" class="old__price">Giá:
+                                    {{product_Detail.price}} </span> <span class="new__price">
+                                    <p id="disPrice" class="h3 py-2" style="color: red">{{
+                                        (product_Detail.price - (product_Detail.price *
+                                        product_Detail.discounts.price_discounts) / 100) | number:0
+                                        }} VNĐ</p>
+                                </span>
+                            </div>
+                            <div class="my-4">
+                                <ul class="list-unstyled pb-3 description">
+                                    <li id="description">Mô tả:
+                                        {{product_Detail.description}}</li>
+
+
+                                </ul>
+                            </div>
+                            <div class="row">
+                                <div class="col-3">
+                                    <input style="text-align: center" type="number" min="1"
+                                        value="1" class="form-control" readonly>
+                                </div>
+                            </div>
+                    </div>
+
+                    <!--  -->
+                </div>
+
+            </div>
+
         </div>
     </div>
 </div>
-        
-        <section>
-    <div class="container">
-        <div class="row">
-            <div class="col-md-5 m-auto text-center">
-                <div class="section-title">
-                    <h2 class="fw-bold text-uppercase">Bán chạy nhất</h2>
-                    <p>Tất cả các sản phẩm bán chạy nhất hiện có sẵn cho bạn và bạn có thể mua sản phẩm này từ
-                        đây mọi lúc, mọi nơi.</p>
-                </div>
-            </div>
-        </div>
-        <div class="row products">
-            <div class="col-md-3 col-sm-6">
-                <div class="product-grid6">
-                    <div class="card rounded-0">
-                        <div class="product-image6">
-                            <a href="#">
-                                <img class="card-img rounded-0 img-fluid"
-                                    th:src="@{'/images/product-img/bomlop2.jpg'}">
-                            </a>
-                        </div>
-                        <div class="product-content">
-                            <a th:href="@{/user/detail}" class="h3 text-decoration-none"></a>
-                            <ul class="list-unstyled d-flex justify-content-center mb-1">
-                                <li>
-                                    <i class="text-warning bi bi-star"></i>
-                                    <i class="text-warning bi bi-star"></i>
-                                    <i class="text-warning bi bi-star"></i>
-                                    <i class="text-warning bi bi-star"></i>
-                                    <i class="text-warning bi bi-star"></i>
-                                </li>
-                            </ul>
-                            <h3 class="title">
-                                <a th:href="@{/user/detail}">
-                                    <p>Pikachu siêu nhân cực đáng yêu</p>
-                                </a>
-                            </h3>
-                            <div class="price">400.000 đ
-                                <span>600.000 đ</span>
-                            </div>
-                        </div>
-                        <ul class="social">
-                            <li><a href="#" data-tip="Xem lướt qua" data-bs-toggle="modal"
-                                    data-bs-target="#QuickViewModal"><i class="bi bi-eye"></i></a></li>
-                            <li><a href="" data-tip="Thêm vào danh sách yêu thích"><i
-                                        class="bi bi-heart"></i></a>
-                            </li>
-                            <li><a href="shop-single.html" data-tip="Thêm vào giỏ hàng"><i
-                                        class="bi bi-cart"></i></a></li>
-                        </ul>
-                    </div>
-                    <div class="product-item__sale"><span class="percent-count sale-txt">-15%</span></div>
-                </div>
-            </div>
 
-            <div class="col-md-3 col-sm-6">
-                <div class="product-grid6">
-                    <div class="card rounded-0">
-                        <div class="product-image6">
-                            <a href="#">
-                                <img class="card-img rounded-0 img-fluid"
-                                    th:src="@{'../images/product-img/volang.jpg'}">
-                            </a>
-                        </div>
-                        <div class="product-content">
-                            <a href="shop-single.html" class="h3 text-decoration-none"></a>
-
-                            <ul class="list-unstyled d-flex justify-content-center mb-1">
-                                <li>
-                                    <i class="text-warning bi bi-star"></i>
-                                    <i class="text-warning bi bi-star"></i>
-                                    <i class="text-warning bi bi-star"></i>
-                                    <i class="text-warning bi bi-star"></i>
-                                    <i class="text-warning bi bi-star"></i>
-                                </li>
-                            </ul>
-                            <h3 class="title">
-                                <a href="#">
-                                    <p>Bọc Vô Lăng Ô Tô Da Cao Cấp SPARCO Italia</p>
-                                </a>
-                            </h3>
-                            <div class="price">$99.00
-                                <span>$111.00</span>
-                            </div>
-                        </div>
-                        <ul class="social">
-                            <li><a href="" data-tip="Xem lướt qua"><i class="bi bi-eye"></i></a></li>
-                            <li><a href="" data-tip="Thêm vào danh sách yêu thích"><i
-                                        class="bi bi-heart"></i></a>
-                            </li>
-                            <li><a href="shop-single.html" data-tip="Thêm vào giỏ hàng"><i
-                                        class="bi bi-cart"></i></a></li>
-                        </ul>
-                    </div>
-                    <div class="product-item__sale"><span class="percent-count sale-txt">-15%</span></div>
-                </div>
-            </div>
-
-            <div class="col-md-3 col-sm-6">
-                <div class="product-grid6">
-                    <div class="card rounded-0">
-                        <div class="product-image6">
-                            <a href="#">
-                                <img class="card-img rounded-0 img-fluid"
-                                    th:src="@{'../images/product-img/phukien1.jpg'}">
-                            </a>
-                        </div>
-                        <div class="product-content">
-                            <a href="shop-single.html" class="h3 text-decoration-none"></a>
-
-                            <ul class="list-unstyled d-flex justify-content-center mb-1">
-                                <li>
-                                    <i class="text-warning bi bi-star"></i>
-                                    <i class="text-warning bi bi-star"></i>
-                                    <i class="text-warning bi bi-star"></i>
-                                    <i class="text-warning bi bi-star"></i>
-                                    <i class="text-warning bi bi-star"></i>
-                                </li>
-                            </ul>
-                            <h3 class="title">
-                                <a href="#">
-                                    <p>Đèn Bi Aozoom X Led Pro Domax Light</p>
-                                </a>
-                            </h3>
-                            <div class="price">$55.00
-                                <span>$75.00</span>
-                            </div>
-                        </div>
-                        <ul class="social">
-                            <li><a href="" data-tip="Xem lướt qua"><i class="bi bi-eye"></i></a></li>
-                            <li><a href="" data-tip="Thêm vào danh sách yêu thích"><i
-                                        class="bi bi-heart"></i></a>
-                            </li>
-                            <li><a href="shop-single.html" data-tip="Thêm vào giỏ hàng"><i
-                                        class="bi bi-cart"></i></a></li>
-                        </ul>
-                    </div>
-                    <div class="product-item__sale"><span class="percent-count sale-txt">-15%</span></div>
-                </div>
-            </div>
-
-            <div class="col-md-3 col-sm-6">
-                <div class="product-grid6">
-                    <div class="card rounded-0">
-                        <div class="product-image6">
-                            <a href="#">
-                                <img class="card-img rounded-0 img-fluid"
-                                    th:src="@{'../images/product-img/manhinh1.png'}">
-                            </a>
-                        </div>
-                        <div class="product-content">
-                            <a href="shop-single.html" class="h3 text-decoration-none"></a>
-
-                            <ul class="list-unstyled d-flex justify-content-center mb-1">
-                                <li>
-                                    <i class="text-warning bi bi-star"></i>
-                                    <i class="text-warning bi bi-star"></i>
-                                    <i class="text-warning bi bi-star"></i>
-                                    <i class="text-warning bi bi-star"></i>
-                                    <i class="text-warning bi bi-star"></i>
-                                </li>
-                            </ul>
-                            <h3 class="title">
-                                <a href="#">
-                                    <p>Màn hình NaviPlay N360 – Màn hình cao cấp dành
-                                        cho ô tô
-                                    </p>
-                                </a>
-                            </h3>
-                            <div class="price">$19.00
-                                <span>$21.00</span>
-                            </div>
-                        </div>
-                        <ul class="social">
-                            <li><a href="" data-tip="Xem lướt qua"><i class="bi bi-eye"></i></a></li>
-                            <li><a href="" data-tip="Thêm vào danh sách yêu thích"><i
-                                        class="bi bi-heart"></i></a>
-                            </li>
-                            <li><a href="shop-single.html" data-tip="Thêm vào giỏ hàng"><i
-                                        class="bi bi-cart"></i></a></li>
-                        </ul>
-                    </div>
-                    <div class="product-item__sale"><span class="percent-count sale-txt">-15%</span></div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-        
-        <section>
-    <div class="container-bg-img">
-        <div class="bg-img" style="background-image: url('@{/images/background-02.jpg}');">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-12 text-center">
-                        <div class="section-title">
-                            <h2 class="fw-bold text-uppercase">Tất cả các linh kiện <br>
-                                mà xe bạn cần đều đang ở đây
-                            </h2>
-                            <a th:href="@{/user/detail}" class="btn btn-outline-warning mt-3">Mua sắm</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div style="margin-top: -130px;">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-12 d-flex justify-content-center">
-                        <img th:src="@{/images/background-car.png}" alt="">
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-        
-        
-    </main>
-
-    
     <!-- Footer Start -->
-	<footer th:replace="/user/component/_footer :: _footer" ></footer>
-	<!-- Footer End -->
+    <footer th:replace="/user/component/_footer :: _footer"></footer>
+    <!-- Footer End -->
 
     <!-- Link To Base JS -->
     <th:block th:replace="/user/component/_linkJS :: jsLinks" />
